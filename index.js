@@ -44,19 +44,27 @@ function showAllTasks() {
 }
 
 function showCompletedTasks() {
-  let completedTasks = document.querySelectorAll(".checked");
-  listContainer.innerHTML = "";
-  completedTasks.forEach((task) => {
-    listContainer.appendChild(task);
-  });
+  let allTasks = document.querySelectorAll("li");
+  allTasks.forEach((task) => {
+    if (task.classList.contains("checked")) {
+      task.style.display = "block";
+    }
+    else{
+      task.style.display = "none";
+    }
+  })
 }
 
 function showUncompletedTasks() {
-  let uncompletedTasks = document.querySelectorAll("li:not(.checked)");
-  listContainer.innerHTML = "";
-  uncompletedTasks.forEach((task) => {
-    listContainer.appendChild(task);
-  });
+  let allTasks = document.querySelectorAll("li");
+  allTasks.forEach((task) => {
+    if (!task.classList.contains("checked")) {
+      task.style.display = "block";
+    }
+    else {
+      task.style.display = "none";
+    }
+  })
 }
 
 showTask();
