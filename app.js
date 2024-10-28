@@ -5,7 +5,7 @@ let completedTasks = document.getElementById("completed");
 let uncompletedTasks = document.getElementById("uncompleted");
 let listContainer = document.getElementById("listContainer");
 
-button.addEventListener("click", function () {
+const addTask = () => {
     if (input.value === "") {
         alert("You must enter something");
     }
@@ -19,6 +19,13 @@ button.addEventListener("click", function () {
     }
     input.value = "";
     saveData();
+}
+  
+button.addEventListener("click", () => addTask());
+input.addEventListener("keydown", event => {
+  if (event.key === "Enter") {
+    addTask();
+  }
 });
 
 listContainer.addEventListener("click", (e) => {
